@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wortschatztraining A2.1 – Lektion 5–11</title>
+<style>
+:root{--bg:#fafaf7;--fg:#1d1d1b;--card:#fff;--line:#d8d6cc;--acc:#2d5bd0;--ok:#d7f0dc;--okt:#14532d;--bad:#fbdcdc;--badt:#7f1d1d;--chip:#eef1fb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181b;--fg:#ececea;--card:#222328;--line:#3a3c44;--acc:#8aa8ff;--ok:#1e4a2c;--okt:#c4f0d0;--bad:#5a2323;--badt:#ffd0d0;--chip:#2c3040}}
+:root[data-theme="dark"]{--bg:#17181b;--fg:#ececea;--card:#222328;--line:#3a3c44;--acc:#8aa8ff;--ok:#1e4a2c;--okt:#c4f0d0;--bad:#5a2323;--badt:#ffd0d0;--chip:#2c3040}
+html,body{margin:0}body{background:var(--bg);color:var(--fg);font:17px/1.9 system-ui,-apple-system,"Segoe UI",sans-serif;padding:16px}
+main{max-width:760px;margin:0 auto}h1{font-size:1.4rem;margin:.2em 0}
+.sub{opacity:.7;font-size:.9rem;line-height:1.4;margin-bottom:12px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+nav button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:8px;padding:6px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.box{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border:2px dashed var(--line);border-radius:10px;margin:10px 0 16px}
+.chip{background:var(--chip);border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:2px 14px;font:inherit;font-size:.95rem;cursor:pointer}
+.chip.sel{outline:2px solid var(--acc)}.chip.used{opacity:.3}
+.gap{display:inline-block;min-width:110px;text-align:center;border:0;border-bottom:2px solid var(--acc);background:transparent;color:var(--fg);font:inherit;padding:0 6px;margin:0 2px;cursor:pointer;border-radius:4px 4px 0 0}
+.gap.ok{background:var(--ok);color:var(--okt)}.gap.bad{background:var(--bad);color:var(--badt)}
+.num{font-size:.7rem;opacity:.6;vertical-align:super;margin-right:2px}
+.row{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
+.row button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:8px;padding:6px 14px;font:inherit;font-size:.95rem;cursor:pointer}
+.row .go{background:var(--acc);color:#fff;border-color:var(--acc)}
+.score{font-weight:600}h2{font-size:1.1rem;margin:0}
+</style></head><body><main>
+<h1>Wortschatztraining A2.1</h1>
+<div class="sub">Momente A2.1 · Lektion 5–11 · Wähle ein Wort aus dem Kasten und tippe dann auf die Lücke. Zwei Wörter passen nicht.</div>
+<nav id="nav"></nav><div class="card" id="ex"></div>
+<script>
+var EX=[
+{t:"Übung 1 · Veranstaltungen (L5)",txt:"Lara hat zum Geburtstag eine tolle {1} bekommen. Ihr Freund schenkt ihr zwei {2} für ein {3} in Berlin. Das findet im großen {4} statt. Viele {5} aus ganz Europa spielen dort. Lara ist total {6}! Nach dem Konzert möchte sie ein {7} von ihrer Lieblingssängerin haben.",a:["Überraschung","Tickets","Konzert","Stadion","Künstler","begeistert","Autogramm"],x:["enttäuscht","Ausstellung","Lesung"]},
+{t:"Übung 2 · Sport (L6)",txt:"Mein Bruder Tom liebt Sport. Volleyball ist seine liebste {1}. Er ist Mitglied in einem {2} und will gut sein. Deshalb möchte er dreimal pro Woche {3}. Das Training findet in der {4} neben der Schule statt. Seine {5} spielt am Samstag einen wichtigen {6}. Er geht {7} auch am Wochenende ins Training. Für ihn ist Sport außerdem eine gute {8} nach einem langen Tag.",a:["Sportart","Verein","trainieren","Halle","Mannschaft","Wettkampf","häufig","Entspannung"],x:["kostenlos","Meinung"]},
+{t:"Übung 3 · Speisen und Getränke (L7)",txt:"Am Samstag war ich mit Freunden auf dem Markt. An einem {1} haben wir eine {2} mit Brot gegessen. Dazu habe ich eine kalte {3} getrunken. Dann wollten wir {4}. Die Verkäuferin hat gefragt: „Möchten Sie {5} oder mit der EC-Karte?“ Später haben wir im Café eine {6} mit viel {7} bestellt. Zu Hause koche ich oft nach einem {8} von meiner Oma.",a:["Imbissstand","Bratwurst","Saftschorle","zahlen","bar","Erdbeertorte","Sahne","Rezept"],x:["Lieferservice","Kasse"]},
+{t:"Übung 4 · Verkehr (L10)",txt:"Heute Morgen bin ich mit dem Auto zur Arbeit gefahren. Auf der {1} habe ich lange im {2} gestanden, weil ein {3} passiert ist. Danach habe ich noch eine {4} mit einer {5} gesehen. An der nächsten {6} bin ich runtergefahren. Ich bin {7} gefahren und habe nicht {8}. Am Ende bin ich {9} im Büro angekommen.",a:["Autobahn","Stau","Unfall","Baustelle","Umleitung","Ausfahrt","vorsichtig","überholt","endlich"],x:["Zebrastreifen","Bürgersteig"]},
+{t:"Übung 5 · Reisegepäck (L11)",txt:"Nächste Woche mache ich mit meinem Bruder eine {1} in den Alpen. Wir haben einen {2}, der den Weg gut kennt. Ich putze mir jeden Morgen die Zähne, deshalb brauche ich eine {3}. Nach dem Duschen trockne ich mich mit einem {4} ab. Gegen die Sonne brauche ich {5}. Für die Nacht im Zelt packe ich einen {6} ein. Im Dunkeln hilft mir eine {7}. Unterwegs habe ich immer eine {8} mit Wasser dabei. Oben auf dem {9} wartet eine tolle {10}.",a:["Wanderung","Bergführer","Zahnbürste","Handtuch","Sonnencreme","Schlafsack","Taschenlampe","Trinkflasche","Berg","Aussicht"],x:["Kreuzfahrt","Abenteuer"]}
+];
+var cur=0,st=[];
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function init(i){st[i]={box:shuf(EX[i].a.concat(EX[i].x)),v:EX[i].a.map(function(){return ""}),sel:null,chk:false}}
+EX.forEach(function(_,i){init(i)});
+function nav(){var n=document.getElementById("nav");n.innerHTML="";EX.forEach(function(e,i){var b=document.createElement("button");b.textContent="Übung "+(i+1);if(i==cur)b.className="on";b.onclick=function(){cur=i;draw()};n.appendChild(b)})}
+function draw(){nav();var e=EX[cur],s=st[cur],h="<h2>"+e.t+"</h2><div class='box'>";
+s.box.forEach(function(w){var u=s.v.indexOf(w)>-1;h+="<button class='chip"+(u?" used":"")+(s.sel==w?" sel":"")+"' data-w='"+w+"'>"+w+"</button>"});
+h+="</div><div>"+e.txt.replace(/\{(\d+)\}/g,function(_,n){var k=n-1,c="gap";if(s.chk)c+=s.v[k]==e.a[k]?" ok":" bad";return "<span class='num'>"+n+"</span><button class='"+c+"' data-g='"+k+"'>"+(s.v[k]||"&nbsp;")+"</button>"})+"</div>";
+h+="<div class='row'><button class='go' id='chk'>Prüfen</button><button id='sol'>Lösung</button><button id='rst'>Neu starten</button><span class='score' id='sc'></span></div>";
+var d=document.getElementById("ex");d.innerHTML=h;
+d.querySelectorAll(".chip").forEach(function(b){b.onclick=function(){var w=b.dataset.w;if(s.v.indexOf(w)>-1)return;s.sel=s.sel==w?null:w;draw()}});
+d.querySelectorAll(".gap").forEach(function(b){b.onclick=function(){var k=+b.dataset.g;if(s.sel){s.v[k]=s.sel;s.sel=null;s.chk=false}else if(s.v[k]){s.v[k]="";s.chk=false}draw()}});
+document.getElementById("chk").onclick=function(){s.chk=true;draw();var n=0;s.v.forEach(function(v,k){if(v==e.a[k])n++});document.getElementById("sc").textContent=n+" von "+e.a.length+" richtig"+(n==e.a.length?" – super! 🎉":"")};
+document.getElementById("sol").onclick=function(){s.v=e.a.slice();s.chk=true;draw()};
+document.getElementById("rst").onclick=function(){init(cur);draw()}}
+draw();
+</script></main></body></html>
